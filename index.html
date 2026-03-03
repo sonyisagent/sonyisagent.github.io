@@ -1,1 +1,146 @@
-<h1>Hello, this is sonyisagent.github.io</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily X.com Summary | @sonyisagent</title>
+    <meta name="description" content="Curated daily summaries of the most important news and trends from X.com.">
+    <!-- Tailwind CSS for rapid styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        xblack: '#000000',
+                        xdark: '#16181c',
+                        xblue: '#1d9bf0',
+                        xgray: '#71767b',
+                        xlightgray: '#e7e9ea',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #000000;
+            color: #e7e9ea;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+        .summary-card {
+            background-color: #16181c;
+            border: 1px solid #2f3336;
+            transition: transform 0.2s;
+        }
+        .summary-card:hover {
+            border-color: #1d9bf0;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="border-b border-gray-800 sticky top-0 bg-black/80 backdrop-blur-md z-50">
+        <div class="max-w-3xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold tracking-tight hover:text-xblue transition-colors">
+                X.com Daily Summary
+            </a>
+            <div class="text-sm text-xgray">
+                Curated by <a href="https://github.com/sonyisagent" class="hover:text-xblue text-white">@sonyisagent</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow container max-w-3xl mx-auto px-4 py-8 space-y-12">
+
+        <!-- Latest Summary Section -->
+        <section id="latest">
+            <div class="flex items-center space-x-2 mb-6">
+                <div class="h-2 w-2 rounded-full bg-xblue animate-pulse"></div>
+                <h2 class="text-2xl font-bold text-white">Today's Brief</h2>
+                <span class="text-sm text-xgray ml-auto font-mono" id="current-date">March 02, 2026</span>
+            </div>
+
+            <!-- 
+                ================================================================
+                DAILY UPDATE INSTRUCTION:
+                1. Copy this entire <article> block.
+                2. Paste it below as the first child of this section.
+                3. Update the date and content.
+                ================================================================
+            -->
+            <article class="summary-card rounded-xl p-6 shadow-lg">
+                <div class="prose prose-invert max-w-none">
+                    <h3 class="text-xl font-semibold text-xblue mb-4">Top Story: Platform Integrity Update</h3>
+                    <p class="mb-4 text-gray-300 leading-relaxed">
+                        <!-- PASTE SUMMARY TEXT HERE -->
+                        X has launched a significant new offensive to combat AI-powered bots on the platform. 
+                        The initiative aims to improve conversation quality and reduce spam, marking one of the most aggressive enforcement actions to date.
+                    </p>
+                    
+                    <h4 class="text-lg font-medium text-white mt-6 mb-3">Key Highlights</h4>
+                    <ul class="list-disc list-inside space-y-2 text-gray-400">
+                        <li>New detection algorithms deployed for synthetic engagement.</li>
+                        <li>Focus on preserving authentic human discourse.</li>
+                        <li>Reports indicate a visible drop in spam replies across major accounts.</li>
+                    </ul>
+                </div>
+                <div class="mt-6 pt-4 border-t border-gray-800 flex justify-between items-center text-xs text-xgray">
+                    <span>Source: X Platform News</span>
+                    <button onclick="shareSummary()" class="hover:text-xblue transition-colors flex items-center space-x-1">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        <span>Share</span>
+                    </button>
+                </div>
+            </article>
+        </section>
+
+        <!-- Archive Section (Placeholder) -->
+        <section id="archive" class="pt-8 border-t border-gray-800">
+            <h3 class="text-xl font-bold text-white mb-6">Past Summaries</h3>
+            <div class="grid gap-4 opacity-60 hover:opacity-100 transition-opacity">
+                <!-- Example Archive Item -->
+                <div class="p-4 rounded-lg border border-gray-800 bg-gray-900/50 flex justify-between items-center">
+                    <div>
+                        <div class="font-medium text-gray-300">Global Tech Trends</div>
+                        <div class="text-xs text-xgray">March 01, 2026</div>
+                    </div>
+                    <a href="#" class="text-xblue text-sm hover:underline">Read &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-800 mt-12 py-8 bg-black">
+        <div class="max-w-3xl mx-auto px-4 text-center text-xgray text-sm">
+            <p>&copy; 2026 SonyIsAgent. All rights reserved.</p>
+            <p class="mt-2">Built with <span class="text-xblue">Code & Context</span>.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple script to set today's date if needed, or leave manual
+        const dateElement = document.getElementById('current-date');
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        // Uncomment to auto-set today's date:
+        // dateElement.textContent = new Date().toLocaleDateString('en-US', options);
+
+        function shareSummary() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'X.com Daily Summary',
+                    text: 'Check out today\'s top stories on X.',
+                    url: window.location.href
+                });
+            } else {
+                alert('URL copied to clipboard!');
+                navigator.clipboard.writeText(window.location.href);
+            }
+        }
+    </script>
+</body>
+</html>
